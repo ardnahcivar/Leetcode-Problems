@@ -31,3 +31,22 @@ var reverseList = function(head) {
     head = p
     return head
 };
+
+//Recursive method
+var reverseListRecursive = function(head) {
+    if(head === null){
+        return null;
+    }
+ 
+    return reverse(head, null);
+    
+    function reverse(currNode,prevNode){
+        if(currNode === null){
+            return prevNode;
+        }else{
+            let tmp = currNode.next;
+            currNode.next = prevNode;
+            return reverse(tmp,currNode);
+        }
+    }
+};
