@@ -24,21 +24,23 @@ All the numbers of nums are unique.
  * @param {number[]} nums
  * @return {number[][]}
  */
- var subsets = function(nums) {    
+ var subsets = function(nums) {
+    
     let res = [];
 
-    function findSubsets(start, end, curr){
+    function findSubsets(start, curr){
         res.push(curr);
         
         for(let i = start; i < nums.length; i++){
             let next = [...curr, nums[i]];
-            findSubsets(i + 1, end, next);
+            findSubsets(i + 1, next);
         }            
     }
     
-    findSubsets(0, nums.length - 1, []);
+    findSubsets(0, []);
     
     return res;
 };
+
 
 
